@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  _id: String!
+  name: String!
+  episodes: [Episode!]
+}
+
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
+
+type Query {
+  characters(pagination: PaginationInput!): [Character!]!
+}
+
+input PaginationInput {
+  skip: Float = 0
+  limit: Float!
+}
+
+type Mutation {
+  createCharacter(payload: CreateCharacterInput!): Character!
+  deleteCharacter(_id: String!): Boolean!
+  updateCharacter(payload: UpdateCharacterInput!): Character!
+}
+
+input CreateCharacterInput {
+  name: String!
+  episodes: [Episode!]
+}
+
+input UpdateCharacterInput {
+  _id: String!
+  name: String
+  episodes: [Episode!]
+}
